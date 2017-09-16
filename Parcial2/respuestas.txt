@@ -1,1 +1,31 @@
-[Inserte aquí las respuestas a las preguntas del numeral 1]
+﻿[Inserte aquí las respuestas a las preguntas del numeral 1]
+Alejandro Isaza Osorio 000279490
+
+1.
+a)Qué mecanismo utiliza el player para determinar hacia dónde disparará la bala?
+Crea una esfera alrededor del objeto player, con un radio definido, que lo que hace es detectar otros colliders,
+si estos otros colliders pertenecen a objetos enemy, el jugador obtendra la posicion de estos y girara para
+disparar en esa direccion.
+
+b)¿Existe algún caso en que el enemigo no pueda moverse hacia el player?
+La unica forma de que el enemigo no se mueva hacia el jugador es si su velocidad es igual a 0,
+de otra manera siempre se movera hacia el, o si es negativa se alejara de el (xD).
+Tambien cuando el enemigo choca con el jugador la variable canMove pasa a false y no se podra mover, este
+caso si el enemigo no se destruyera en la colision.
+
+c)¿Qué mecanismo se está utilizando para instanciar las balas del player?
+Para instanciar una bala del jugador, se pide el objeto a instanciar, la posicion de la cual va a salir y
+la rotacion del objeto que la esta instanciando, ademas tambien se definen los parametros, su velocidad,
+el daño que hara y el gameobject, para todo esto se pide presionar la tecla espacio.
+
+d)¿Qué características tienen las propiedades definidas para el enemigo?
+Tiene un enum protegido, permitiendo que accedan sus subclases a este, para cambiar las propiedades de cada
+enemigo sin tener que hacer un codigo nuevo para cada uno de ellos, esto incluye establecer sus propiedades
+de ataque y vida. Todos los tipos de enemigo se podran mover siempre y cuando cumplan con la condicion
+necesaria (speed > 0). Las propiedades de cada Tier de enemigos pueden ser manipuladas desde el inspector,
+debido a sus caracteristicas publicas.
+
+e)¿Qué función cumple el atributo instigator en la bala? 
+El instigator es el GameObject el cual queremos que represente a la bala, su funcion es guardar la referencia
+de nuestra bala para lograr instanciarla al momento que el jugador la quiera instanciar y para que no choque
+contra el objeto instanciador.

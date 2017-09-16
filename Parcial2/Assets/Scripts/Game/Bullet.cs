@@ -39,10 +39,9 @@ namespace Parcial2.Game
                     enemy.ReceiveDamage(damage);
                 }
             }
-
             if (instigator != other.gameObject)
             {
-                Destroy(gameObject); 
+                Destroy(gameObject);
             }
         }
 

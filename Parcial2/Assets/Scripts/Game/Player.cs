@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace Parcial2.Game
 {
@@ -23,6 +24,11 @@ namespace Parcial2.Game
         private int hp;
         private int atk;
 
+        public GameObject Button; 
+        public bool OnFire = false;
+
+        
+
         public static Player Instance
         {
             get
@@ -42,6 +48,46 @@ namespace Parcial2.Game
             {
                 return playerProfile.Currency;
             }
+        }
+
+        public void ButtonFire()
+        {
+            
+           
+                Vector3 lookAtLocation = Vector3.zero;
+                //Debug.DrawRay(transform.position, Vector3.forward * 5F, Color.green, 5F);
+
+                Collider[] otherColliders = Physics.OverlapSphere(transform.position, 10F);
+
+                for (int i = 0; i < otherColliders.Length; i++)
+                {
+                    if (otherColliders[i].gameObject == gameObject)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        Enemy enemy = otherColliders[i].GetComponent<Enemy>();
+
+                        if (enemy != null)
+                        {
+                            lookAtLocation = enemy.transform.position;
+                            break;
+                        }
+                    }
+                }
+
+                if (lookAtLocation != Vector3.zero)
+                {
+                    transform.LookAt(lookAtLocation);
+                }
+                Bullet bulletInstance = Instantiate(bulletBase, transform.position + new Vector3(0F, 1F, 0F), transform.rotation);
+                bulletInstance.SetParams(50, 100, this.gameObject);
+                bulletInstance.Toss();
+                
+            
+           
+            
         }
 
         public void SubstractCurrency(int currencyToSubstract)
