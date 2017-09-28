@@ -1,0 +1,16 @@
+Feedback.
+
+1. Parcialmente. Ojo que lo que hace el método es girar hacia "un" enemigo entre los que encuentre, pero vale. (0.25)
+2. OK (0.3)
+3. En general describís el código, pero solo hacía falta mencionar el Instantiate(). (0.25)
+4. Las propiedades de los tier de enemigos están definidas en código. Lo único que se puede especificar en inspector es el tier que tendrá la instancia de enemigo específica; sin embargo, es la clase la que especifica los valores de Hp y Atk de acuerdo al tier seleccionado. (0.2)
+5. La última línea está bien; pero el comienzo no. 'instigator' no guarda la referencia a la bala, sino a quién la instancia, para lograr lo que mencionas al final. (0.2)
+
+Código
+1. No hay controlador ni fábricas (0.0)
+2. El botón no se deshabilita cuando el jugador dispara (0.2)
+3. No hay controlador de olas (0.0)
+4. No hay variación de balas (0.0)
+5. No hay pool (0.0)
+
+Total: 1.4
